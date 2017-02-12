@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+100.times do
+  Friend.create(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  birthday: Faker::Date.between(1.years.ago,50.years.ago),
+  cat_name: Faker::Cat.name
+  )
+end
