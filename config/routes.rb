@@ -1,30 +1,36 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  namespace :v1 do
 
-    get "/friends" => "friends#index"
+  namespace :api do
 
-    get "/friends/:id" => "friends#show"
+    namespace :v1 do
 
-    post "/friends" => "friends#create"
+      get "/friends" => "friends#index"
 
-    patch "/friends/:id" => "friends#update"
+      get "/friends/:id" => "friends#show"
 
-    delete "/friends/:id" => "friends#destroy"
+      post "/friends" => "friends#create"
+
+      patch "/friends/:id" => "friends#update"
+
+      delete "/friends/:id" => "friends#destroy"
+
+    end
+
+    namespace :v2 do
+
+      get "/friends" => "friends#index"
+
+      get "/friends/:id" => "friends#show"
+
+      post "/friends" => "friends#create"
+
+      patch "/friends/:id" => "friends#update"
+
+      delete "/friends/:id" => "friends#destroy"
+
+    end
 
   end
-
-  namespace :v2 do
-
-    get "/friends" => "friends#index"
-
-    get "/friends/:id" => "friends#show"
-
-    post "/friends" => "friends#create"
-
-    patch "/friends/:id" => "friends#update"
-
-    delete "/friends/:id" => "friends#destroy"
-    
-  end
+  
 end
