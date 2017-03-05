@@ -1,4 +1,4 @@
-(function() {
+  (function(){
     "use strict";
 
     angular.module("app").controller("friendCtrl", function($scope, $http) {
@@ -12,7 +12,9 @@
             });
         };
 
-
+        $scope.addperson = function(){
+          
+        };
 
     });
 }());

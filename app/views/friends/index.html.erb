@@ -2,7 +2,15 @@
     <div ng-controller="friendCtrl" ng-init="setup()">
         <p>{{ message }}</p>
         <p>{{ friendsCount }}</p>
-        <div ng-repeat="friend in friends">
+        <input ng-model="addFilter">
+        <div ng-repeat="friend in friends | filter: {first_name: addFilter}">
+          <p>Name: {{ friend.full_name }}</p>
+          <p>Birthday: {{ friend.birthday }}</p>
+          <p>Cat name: {{ friend.cat_name }}</p><br>
+        </div>
+
+        <div >
+
         </div>
     </div>
 
