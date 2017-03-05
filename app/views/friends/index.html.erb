@@ -1,20 +1,52 @@
+<h1>Friends List</h1>
+
 <div ng-app="app">
     <div ng-controller="friendCtrl" ng-init="setup()">
         <p>{{ message }}</p>
         <p>{{ friendsCount }}</p>
-        <input ng-model="addFilter">
+        <!-- <input ng-model="addFilter">
         <div ng-repeat="friend in friends | filter: {first_name: addFilter}">
-          <p>Name: {{ friend.full_name }}</p>
-          <p>Birthday: {{ friend.birthday }}</p>
-          <p>Cat name: {{ friend.cat_name }}</p><br>
-        </div>
+            <p>Name:
+                {{ friend.full_name }}</p>
+            <p>Birthday:
+                {{ friend.birthday }}</p>
+            <p>Cat name:
+                {{ friend.cat_name }}</p><br>
+        </div> -->
 
         <div >
-          First Name: <input ng-model="newFriendFirstName"><br>
-          Last Name: <input ng-model="newFriendLastName"><br>
-          Birthday: <input ng-model="birthday"><br>
-          Cat Name: <input ng-model="cat_name"><br>
-          <button ng-click="addFriend(newFriendFirstName, newFriendLastName, birthday, cat_name)">Add Friend</button>
+            First Name:
+            <input ng-model="newFriendFirstName"><br>
+            Last Name:
+            <input ng-model="newFriendLastName"><br>
+            Birthday:
+            <input ng-model="birthday"><br>
+            Cat Name:
+            <input ng-model="cat_name"><br><br>
+            <button ng-click="addFriend(newFriendFirstName, newFriendLastName, birthday, cat_name)">Add Friend</button>
+
+        </div>
+
+        <div>
+
+          <p>descending: {{ descending }}</p>
+          <p>orderAttr: {{ orderAttr }}</p>
+            <table style="width:100%">
+                <tr>
+                    <th ng-click="changeOrder('first_name')">First Name</th>
+                    <th ng-click="changeOrder('last_name')">Last Name</th>
+                    <th ng-click="changeOrder('birthday')">Birthday</th>
+                    <th ng-click="changeOrder('cat_name')">Cat Name</th>
+                    <th>Delete</th>
+                </tr>
+                <tr ng-repeat="friend in friends | orderBy: orderAttr:descending">
+                    <td>{{ friend.first_name }}</td>
+                    <td>{{ friend.last_name }}</td>
+                    <td>{{ friend.birthday }}</td>
+                    <td>{{ friend.cat_name }}</td>
+                    <td><button >delete</button></td>
+                </tr>
+            </table>
 
         </div>
     </div>

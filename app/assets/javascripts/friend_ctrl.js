@@ -12,17 +12,26 @@
             });
         };
 
-        $scope.addfriend = function(first_name, last_name, birthday, cat_name){
-          var params = {
-            first_name: first_name,
-            last_name: last_name,
-            birthday: birthday,
-            cat_name: cat_name
-          };
-          $http.post("/api/v1/friends.api", params).then(function(response){
-            
-          });
+        $scope.changeOrder = function(attr){
+          if(attr != $scope.orderAttr){
+            $scope.descending = false;
+          }else {
+            $scope.descending = !$scope.descending;
+          }
+          $scope.orderAttr = attr;
         };
+        //
+        // $scope.addfriend = function(first_name, last_name, birthday, cat_name){
+        //   var params = {
+        //     first_name: first_name,
+        //     last_name: last_name,
+        //     birthday: birthday,
+        //     cat_name: cat_name
+        //   };
+        //   $http.post("/api/v1/friends.api", params).then(function(response){
+        //
+        //   });
+        // };
 
     });
 }());
