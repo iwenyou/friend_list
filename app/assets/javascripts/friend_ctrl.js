@@ -12,8 +12,16 @@
             });
         };
 
-        $scope.addperson = function(){
-          
+        $scope.addfriend = function(first_name, last_name, birthday, cat_name){
+          var params = {
+            first_name: first_name,
+            last_name: last_name,
+            birthday: birthday,
+            cat_name: cat_name
+          };
+          $http.post("/api/v1/friends.api", params).then(function(response){
+            
+          });
         };
 
     });
